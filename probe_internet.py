@@ -16,8 +16,12 @@ def notify_sms(
     auth_token,
     source_phone_number,
     target_phone_number,
+    min_interval=0,
 ):
-    lost_duration = naturaldelta(datetime.utcnow() - lost_time)
+    lost_duration = datetime.utcnow() - lost_time
+    if lost_duration.total_seconds() < min_interval:
+        log.info('skipping sms, internet was not out long enough')
+    lost_duration = naturaldelta(lost_duration)
     body = (
         'Internet dropped at {} ({}).'
         .format(lost_time, lost_duration)
@@ -93,6 +97,7 @@ def main(args=sys.argv[1:]):
             profile['twilio']['auth_token'],
             profile['twilio']['source_phone_number'],
             profile['twilio']['target_phone_number'],
+            profile['twilio'].get('min_interval', 0),
         )
     runloop(probe, profile['probe']['interval'], notifier)
 
