@@ -21,6 +21,7 @@ def notify_sms(
     lost_duration = datetime.utcnow() - lost_time
     if lost_duration.total_seconds() < min_interval:
         log.info('skipping sms, internet was not out long enough')
+        return
     lost_duration = naturaldelta(lost_duration)
     body = (
         'Internet dropped at {} ({}).'
