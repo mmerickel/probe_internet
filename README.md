@@ -1,12 +1,12 @@
-## Usage
-
-1.  Install Dependencies
+j# Installation
 
 ```console
-$ poetry install
+$ pip install probe-internet
 ```
 
-2. Define a `profile.toml` similar to:
+## Usage
+
+Define a `profile.toml` similar to:
 
 ```toml
 [probe]
@@ -22,8 +22,8 @@ source_phone_number = "+1..."
 target_phone_number = "+1..."
 ```
 
-3. Run it:
+Run it:
 
 ```console
-$ poetry run python -m probe_internet
+$ probe-internet
 ```

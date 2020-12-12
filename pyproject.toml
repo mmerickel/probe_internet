@@ -1,8 +1,29 @@
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
 [tool.poetry]
 name = "probe_internet"
 version = "0.1.0"
-description = ""
-authors = ["Michael Merickel <michael@merickel.org>"]
+description = "Probe IP addresses and notify when connections are re-established."
+repository = "https://github.com/mmerickel/probe_internet"
+authors = ["Michael Merickel <oss@m.merickel.org>"]
+license = "MIT"
+keywords = [
+    "internet notifier",
+    "internet probe",
+    "network down",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Topic :: Home Automation",
+    "Topic :: System :: Networking",
+]
+
+[tool.poetry.scripts]
+probe-internet = "probe_internet:main"
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -12,7 +33,3 @@ toml = "*"
 twilio = "*"
 
 [tool.poetry.dev-dependencies]
-
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
