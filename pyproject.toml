@@ -4,7 +4,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "probe_internet"
-version = "0.1.1"
+version = "0.1.2"
 description = "Probe IP addresses and notify when connections are re-established."
 readme = "README.md"
 repository = "https://github.com/mmerickel/probe_internet"
